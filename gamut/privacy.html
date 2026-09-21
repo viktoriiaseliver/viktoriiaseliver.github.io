@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Confidentialité · Конфиденциальность — Gamut</title>
+<link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/gamut/en/privacy.html">
+<link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/gamut/ru/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://viktoriiaseliver.github.io/gamut/fr/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/gamut/en/privacy.html">
+<link rel="stylesheet" href="../style.css">
+<script>
+/* Этот адрес стоит в карточке App Store (docs/09-app-store-описание.md):
+   он обязан остаться живым. Текста здесь нет — только выбор языка.
+   Редирект в <head> срабатывает до отрисовки, поэтому страницу ниже
+   видят только те, у кого выключен JavaScript; для них это работающая
+   развилка из трёх ссылок, а не заглушка. */
+(function () {
+  var wanted = navigator.languages || [navigator.language || "en"];
+  for (var i = 0; i < wanted.length; i++) {
+    var tag = String(wanted[i]).toLowerCase();
+    if (tag.indexOf("ru") === 0) { location.replace("ru/privacy.html"); return; }
+    if (tag.indexOf("fr") === 0) { location.replace("fr/privacy.html"); return; }
+    if (tag.indexOf("en") === 0) { location.replace("en/privacy.html"); return; }
+  }
+  location.replace("en/privacy.html");
+})();
+</script>
+</head>
+<body>
+<main>
+<header>
+  <div class="name">Gamut</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Choose a language. Choisissez une langue. Выберите язык.</p>
+</header>
+
+<p class="lang"><a href="en/privacy.html">Privacy Policy — in English</a></p>
+<p class="lang"><a href="fr/privacy.html">Politique de confidentialité — en français</a></p>
+<p class="lang"><a href="ru/privacy.html">Политика конфиденциальности — по-русски</a></p>
+
+<footer>
+  <p>viktoriia.seliver@gmail.com</p>
+</footer>
+</main>
+</body>
+</html>
