@@ -7,13 +7,18 @@
 <link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/gamut/en/index.html">
 <link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/gamut/ru/index.html">
 <link rel="alternate" hreflang="fr" href="https://viktoriiaseliver.github.io/gamut/fr/index.html">
+<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/gamut/uk/index.html">
 <link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/gamut/en/index.html">
 <link rel="stylesheet" href="../style.css">
 <script>
 (function () {
   var wanted = navigator.languages || [navigator.language || "en"];
+  // Порядок веток внутри цикла роли не играет: один тег начинается
+  // ровно с одного из четырёх префиксов. Решает порядок самого
+  // navigator.languages — то есть предпочтение человека, а не наше.
   for (var i = 0; i < wanted.length; i++) {
     var tag = String(wanted[i]).toLowerCase();
+    if (tag.indexOf("uk") === 0) { location.replace("uk/index.html"); return; }
     if (tag.indexOf("ru") === 0) { location.replace("ru/index.html"); return; }
     if (tag.indexOf("fr") === 0) { location.replace("fr/index.html"); return; }
     if (tag.indexOf("en") === 0) { location.replace("en/index.html"); return; }
@@ -27,12 +32,13 @@
 <header>
   <div class="name">iPhone</div>
   <h1>Gamut</h1>
-  <p class="updated">Choose a language. Choisissez une langue. Выберите язык.</p>
+  <p class="updated">Choose a language. Choisissez une langue. Оберіть мову. Выберите язык.</p>
 </header>
 
 <p class="lang"><a href="en/index.html">English</a></p>
 <p class="lang"><a href="fr/index.html">Français</a></p>
 <p class="lang"><a href="ru/index.html">Русский</a></p>
+<p class="lang"><a href="uk/index.html">Українська</a></p>
 
 <footer>
   <p>viktoriia.seliver@gmail.com</p>
