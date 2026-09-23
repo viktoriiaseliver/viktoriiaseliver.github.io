@@ -6,6 +6,7 @@
 <title>Privacy Policy · Политика приватности — Five More Minutes</title>
 <meta name="description" content="Политика приватности Five More Minutes на русском и английском. Privacy policy in English and Russian.">
 <link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/timer-app/en/privacy.html">
+<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/privacy.html">
 <link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/timer-app/ru/privacy.html">
 <link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/timer-app/privacy.html">
 <link rel="stylesheet" href="../style.css">
@@ -19,6 +20,7 @@
   var wanted = navigator.languages || [navigator.language || "en"];
   for (var i = 0; i < wanted.length; i++) {
     var tag = String(wanted[i]).toLowerCase();
+    if (tag.indexOf("uk") === 0) { location.replace("uk/privacy.html"); return; }
     if (tag.indexOf("ru") === 0) { location.replace("ru/privacy.html"); return; }
     if (tag.indexOf("en") === 0) { location.replace("en/privacy.html"); return; }
   }

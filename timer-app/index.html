@@ -6,6 +6,7 @@
 <title>Five More Minutes</title>
 <meta name="description" content="Five More Minutes для iPhone: отсчёт до выхода, а не до события. Choose your language — English or Русский.">
 <link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/timer-app/en/index.html">
+<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/index.html">
 <link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/timer-app/ru/index.html">
 <link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/timer-app/index.html">
 <link rel="stylesheet" href="../style.css">
@@ -14,6 +15,7 @@
   var wanted = navigator.languages || [navigator.language || "en"];
   for (var i = 0; i < wanted.length; i++) {
     var tag = String(wanted[i]).toLowerCase();
+    if (tag.indexOf("uk") === 0) { location.replace("uk/index.html"); return; }
     if (tag.indexOf("ru") === 0) { location.replace("ru/index.html"); return; }
     if (tag.indexOf("en") === 0) { location.replace("en/index.html"); return; }
   }
@@ -31,6 +33,7 @@
 
 <p class="lang"><a href="en/index.html">English</a></p>
 <p class="lang"><a href="ru/index.html">Русский</a></p>
+<p class="lang"><a href="uk/index.html">Українська</a></p>
 
 <footer>
   <p>viktoriia.seliver@gmail.com</p>
