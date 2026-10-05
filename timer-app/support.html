@@ -3,22 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support · Поддержка — Five More Minutes</title>
-<meta name="description" content="Поддержка Five More Minutes и частые вопросы. Support and FAQ in English and Russian.">
+<title>Support — Five More Minutes</title>
+<meta name="description" content="Five More Minutes support and FAQ in ten languages: English, Русский, Українська, Deutsch, Español, Français, Italiano, 日本語, Português, العربية.">
 <link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/timer-app/en/support.html">
-<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/support.html">
 <link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/timer-app/ru/support.html">
+<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/support.html">
+<link rel="alternate" hreflang="de" href="https://viktoriiaseliver.github.io/timer-app/de/support.html">
+<link rel="alternate" hreflang="es" href="https://viktoriiaseliver.github.io/timer-app/es/support.html">
+<link rel="alternate" hreflang="fr" href="https://viktoriiaseliver.github.io/timer-app/fr/support.html">
+<link rel="alternate" hreflang="it" href="https://viktoriiaseliver.github.io/timer-app/it/support.html">
+<link rel="alternate" hreflang="ja" href="https://viktoriiaseliver.github.io/timer-app/ja/support.html">
+<link rel="alternate" hreflang="pt-BR" href="https://viktoriiaseliver.github.io/timer-app/pt-br/support.html">
+<link rel="alternate" hreflang="ar" href="https://viktoriiaseliver.github.io/timer-app/ar/support.html">
 <link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/timer-app/support.html">
 <link rel="stylesheet" href="../style.css">
 <script>
-/* Адрес из App Store Connect и из AppLinks — см. privacy.html рядом. */
+/* Адрес из App Store Connect и из AppLinks — см. privacy.html рядом,
+   там же записано, почему развилка знает все десять папок и почему
+   сравнение строгое. Проверяется: python3 ../сторож-развилок.py */
 (function () {
+  var langs = [
+    ["uk", "uk"], ["ru", "ru"], ["en", "en"], ["de", "de"],
+    ["es", "es"], ["fr", "fr"], ["it", "it"], ["ja", "ja"],
+    ["pt", "pt-br"], ["ar", "ar"]
+  ];
   var wanted = navigator.languages || [navigator.language || "en"];
   for (var i = 0; i < wanted.length; i++) {
     var tag = String(wanted[i]).toLowerCase();
-    if (tag.indexOf("uk") === 0) { location.replace("uk/support.html"); return; }
-    if (tag.indexOf("ru") === 0) { location.replace("ru/support.html"); return; }
-    if (tag.indexOf("en") === 0) { location.replace("en/support.html"); return; }
+    for (var j = 0; j < langs.length; j++) {
+      var code = langs[j][0];
+      if (tag === code || tag.indexOf(code + "-") === 0) {
+        location.replace(langs[j][1] + "/support.html");
+        return;
+      }
+    }
   }
   location.replace("en/support.html");
 })();
@@ -32,8 +50,7 @@
   <p class="updated">Choose a language. Выберите язык.</p>
 </header>
 
-<p class="lang"><a href="en/support.html">Support &amp; FAQ — in English</a></p>
-<p class="lang"><a href="ru/support.html">Поддержка и частые вопросы — по-русски</a></p>
+<p class="lang"><a href="en/support.html">English</a> · <a href="ru/support.html">Русский</a> · <a href="uk/support.html">Українська</a> · <a href="de/support.html">Deutsch</a> · <a href="es/support.html">Español</a> · <a href="fr/support.html">Français</a> · <a href="it/support.html">Italiano</a> · <a href="ja/support.html">日本語</a> · <a href="pt-br/support.html">Português</a> · <a href="ar/support.html" lang="ar" dir="rtl">العربية</a></p>
 
 <footer>
   <p><a href="mailto:viktoriia.seliver@gmail.com?subject=Five%20More%20Minutes">viktoriia.seliver@gmail.com</a></p>

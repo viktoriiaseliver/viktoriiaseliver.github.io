@@ -3,26 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy · Политика приватности — Five More Minutes</title>
-<meta name="description" content="Политика приватности Five More Minutes на русском и английском. Privacy policy in English and Russian.">
+<title>Privacy Policy — Five More Minutes</title>
+<meta name="description" content="Five More Minutes privacy policy in ten languages: English, Русский, Українська, Deutsch, Español, Français, Italiano, 日本語, Português, العربية.">
 <link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/timer-app/en/privacy.html">
-<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/privacy.html">
 <link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/timer-app/ru/privacy.html">
+<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/privacy.html">
+<link rel="alternate" hreflang="de" href="https://viktoriiaseliver.github.io/timer-app/de/privacy.html">
+<link rel="alternate" hreflang="es" href="https://viktoriiaseliver.github.io/timer-app/es/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://viktoriiaseliver.github.io/timer-app/fr/privacy.html">
+<link rel="alternate" hreflang="it" href="https://viktoriiaseliver.github.io/timer-app/it/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://viktoriiaseliver.github.io/timer-app/ja/privacy.html">
+<link rel="alternate" hreflang="pt-BR" href="https://viktoriiaseliver.github.io/timer-app/pt-br/privacy.html">
+<link rel="alternate" hreflang="ar" href="https://viktoriiaseliver.github.io/timer-app/ar/privacy.html">
 <link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/timer-app/privacy.html">
 <link rel="stylesheet" href="../style.css">
 <script>
 /* Этот адрес зашит в App Store Connect и в AppLinks (Shared/AppInfo.swift):
    он обязан остаться живым навсегда. Текста здесь нет — только выбор
-   языка, en/ или ru/. Редирект в <head> срабатывает до отрисовки, поэтому
-   страница ниже видна лишь тем, у кого выключен JavaScript; для них это
-   не заглушка, а работающая развилка из двух ссылок. */
+   языка. Редирект в <head> срабатывает до отрисовки, поэтому страница
+   ниже видна лишь тем, у кого выключен JavaScript; для них это не
+   заглушка, а работающая развилка из десяти ссылок.
+
+   РАЗВИЛКА ОБЯЗАНА ЗНАТЬ КАЖДУЮ ПАПКУ, КОТОРАЯ ЛЕЖИТ РЯДОМ. До 05.10.2026
+   здесь стояли три языка — uk, ru, en, — а переведённых папок было
+   десять: немец, японец и арабский читатель открывали английскую
+   политику при готовой своей. Страницы внутри папок всё это время
+   несли по одиннадцать hreflang и переключатель на десять языков —
+   то есть дети знали десять, а родитель три.
+   Проверяется за минуту: python3 ../сторож-развилок.py
+
+   СРАВНЕНИЕ СТРОГОЕ: `tag === code` либо `tag` начинается с `code + "-"`.
+   Прежнее `indexOf(code) === 0` увело бы `frr` (северофризский)
+   во французский, а `arn` (мапудунгун) — в арабский. */
 (function () {
+  var langs = [
+    ["uk", "uk"], ["ru", "ru"], ["en", "en"], ["de", "de"],
+    ["es", "es"], ["fr", "fr"], ["it", "it"], ["ja", "ja"],
+    /* pt-PT тоже уходит на бразильскую: она единственная, какая есть,
+       и португальцу ближе английской. */
+    ["pt", "pt-br"], ["ar", "ar"]
+  ];
   var wanted = navigator.languages || [navigator.language || "en"];
   for (var i = 0; i < wanted.length; i++) {
     var tag = String(wanted[i]).toLowerCase();
-    if (tag.indexOf("uk") === 0) { location.replace("uk/privacy.html"); return; }
-    if (tag.indexOf("ru") === 0) { location.replace("ru/privacy.html"); return; }
-    if (tag.indexOf("en") === 0) { location.replace("en/privacy.html"); return; }
+    for (var j = 0; j < langs.length; j++) {
+      var code = langs[j][0];
+      if (tag === code || tag.indexOf(code + "-") === 0) {
+        location.replace(langs[j][1] + "/privacy.html");
+        return;
+      }
+    }
   }
   location.replace("en/privacy.html");
 })();
@@ -36,8 +66,7 @@
   <p class="updated">Choose a language. Выберите язык.</p>
 </header>
 
-<p class="lang"><a href="en/privacy.html">Privacy Policy — in English</a></p>
-<p class="lang"><a href="ru/privacy.html">Политика приватности — по-русски</a></p>
+<p class="lang"><a href="en/privacy.html">English</a> · <a href="ru/privacy.html">Русский</a> · <a href="uk/privacy.html">Українська</a> · <a href="de/privacy.html">Deutsch</a> · <a href="es/privacy.html">Español</a> · <a href="fr/privacy.html">Français</a> · <a href="it/privacy.html">Italiano</a> · <a href="ja/privacy.html">日本語</a> · <a href="pt-br/privacy.html">Português</a> · <a href="ar/privacy.html" lang="ar" dir="rtl">العربية</a></p>
 
 <footer>
   <p>viktoriia.seliver@gmail.com</p>

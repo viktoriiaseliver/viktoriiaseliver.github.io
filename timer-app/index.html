@@ -4,20 +4,38 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Five More Minutes</title>
-<meta name="description" content="Five More Minutes для iPhone: отсчёт до выхода, а не до события. Choose your language — English or Русский.">
+<meta name="description" content="Five More Minutes for iPhone: a countdown to leaving, not to the event. Ten languages: English, Русский, Українська, Deutsch, Español, Français, Italiano, 日本語, Português, العربية.">
 <link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/timer-app/en/index.html">
-<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/index.html">
 <link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/timer-app/ru/index.html">
+<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/timer-app/uk/index.html">
+<link rel="alternate" hreflang="de" href="https://viktoriiaseliver.github.io/timer-app/de/index.html">
+<link rel="alternate" hreflang="es" href="https://viktoriiaseliver.github.io/timer-app/es/index.html">
+<link rel="alternate" hreflang="fr" href="https://viktoriiaseliver.github.io/timer-app/fr/index.html">
+<link rel="alternate" hreflang="it" href="https://viktoriiaseliver.github.io/timer-app/it/index.html">
+<link rel="alternate" hreflang="ja" href="https://viktoriiaseliver.github.io/timer-app/ja/index.html">
+<link rel="alternate" hreflang="pt-BR" href="https://viktoriiaseliver.github.io/timer-app/pt-br/index.html">
+<link rel="alternate" hreflang="ar" href="https://viktoriiaseliver.github.io/timer-app/ar/index.html">
 <link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/timer-app/index.html">
 <link rel="stylesheet" href="../style.css">
 <script>
+/* Развилка по языку. Почему все десять папок и почему сравнение строгое —
+   записано в privacy.html рядом. Проверяется: python3 ../сторож-развилок.py */
 (function () {
+  var langs = [
+    ["uk", "uk"], ["ru", "ru"], ["en", "en"], ["de", "de"],
+    ["es", "es"], ["fr", "fr"], ["it", "it"], ["ja", "ja"],
+    ["pt", "pt-br"], ["ar", "ar"]
+  ];
   var wanted = navigator.languages || [navigator.language || "en"];
   for (var i = 0; i < wanted.length; i++) {
     var tag = String(wanted[i]).toLowerCase();
-    if (tag.indexOf("uk") === 0) { location.replace("uk/index.html"); return; }
-    if (tag.indexOf("ru") === 0) { location.replace("ru/index.html"); return; }
-    if (tag.indexOf("en") === 0) { location.replace("en/index.html"); return; }
+    for (var j = 0; j < langs.length; j++) {
+      var code = langs[j][0];
+      if (tag === code || tag.indexOf(code + "-") === 0) {
+        location.replace(langs[j][1] + "/index.html");
+        return;
+      }
+    }
   }
   location.replace("en/index.html");
 })();
@@ -31,9 +49,7 @@
   <p class="updated">Choose a language. Выберите язык.</p>
 </header>
 
-<p class="lang"><a href="en/index.html">English</a></p>
-<p class="lang"><a href="ru/index.html">Русский</a></p>
-<p class="lang"><a href="uk/index.html">Українська</a></p>
+<p class="lang"><a href="en/index.html">English</a> · <a href="ru/index.html">Русский</a> · <a href="uk/index.html">Українська</a> · <a href="de/index.html">Deutsch</a> · <a href="es/index.html">Español</a> · <a href="fr/index.html">Français</a> · <a href="it/index.html">Italiano</a> · <a href="ja/index.html">日本語</a> · <a href="pt-br/index.html">Português</a> · <a href="ar/index.html" lang="ar" dir="rtl">العربية</a></p>
 
 <footer>
   <p>viktoriia.seliver@gmail.com</p>
