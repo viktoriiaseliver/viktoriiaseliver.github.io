@@ -3,18 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support · Assistance · Поддержка — Gamut</title>
+<title>Support · Assistance · Підтримка · Поддержка — Gamut</title>
 <link rel="alternate" hreflang="en" href="https://viktoriiaseliver.github.io/gamut/en/support.html">
 <link rel="alternate" hreflang="ru" href="https://viktoriiaseliver.github.io/gamut/ru/support.html">
 <link rel="alternate" hreflang="fr" href="https://viktoriiaseliver.github.io/gamut/fr/support.html">
+<link rel="alternate" hreflang="uk" href="https://viktoriiaseliver.github.io/gamut/uk/support.html">
 <link rel="alternate" hreflang="x-default" href="https://viktoriiaseliver.github.io/gamut/en/support.html">
 <link rel="stylesheet" href="../style.css">
 <script>
 /* Адрес из карточки App Store — см. privacy.html рядом. */
 (function () {
   var wanted = navigator.languages || [navigator.language || "en"];
+  // Порядок веток внутри цикла роли не играет: один тег начинается
+  // ровно с одного из четырёх префиксов. Решает порядок самого
+  // navigator.languages — то есть предпочтение человека, а не наше.
   for (var i = 0; i < wanted.length; i++) {
     var tag = String(wanted[i]).toLowerCase();
+    if (tag.indexOf("uk") === 0) { location.replace("uk/support.html"); return; }
     if (tag.indexOf("ru") === 0) { location.replace("ru/support.html"); return; }
     if (tag.indexOf("fr") === 0) { location.replace("fr/support.html"); return; }
     if (tag.indexOf("en") === 0) { location.replace("en/support.html"); return; }
@@ -28,12 +33,13 @@
 <header>
   <div class="name">Gamut</div>
   <h1>Support</h1>
-  <p class="updated">Choose a language. Choisissez une langue. Выберите язык.</p>
+  <p class="updated">Choose a language. Choisissez une langue. Оберіть мову. Выберите язык.</p>
 </header>
 
 <p class="lang"><a href="en/support.html">Support — in English</a></p>
 <p class="lang"><a href="fr/support.html">Assistance — en français</a></p>
 <p class="lang"><a href="ru/support.html">Поддержка — по-русски</a></p>
+<p class="lang"><a href="uk/support.html">Підтримка — українською</a></p>
 
 <footer>
   <p><a href="mailto:viktoriia.seliver@gmail.com?subject=Gamut">viktoriia.seliver@gmail.com</a></p>
